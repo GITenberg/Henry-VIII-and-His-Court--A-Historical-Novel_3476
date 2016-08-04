@@ -1,0 +1,48 @@
+_repo: Henry-VIII-and-His-Court--A-Historical-Novel_3476
+_version: 0.0.1
+contributor:
+  translator:
+    agent_name: Pierce, Henry Niles
+    alias: Pierce, H. N. (Henry Niles)
+    birthdate: 1820
+    deathdate: 1899
+    gutenberg_agent_id: '33043'
+    url: http://www.gutenberg.org/2009/agents/33043
+creator:
+  author:
+    agent_name: Mühlbach, L. (Luise)
+    aliases:
+    - Mühlbach, Louise
+    - Muhlbach, L. (Luise)
+    - Mundt, Clara
+    - Mundt, Klara Muller
+    - Mundt, Klara Müller
+    - Mühlbach, Luise
+    birthdate: 1814
+    deathdate: 1873
+    gutenberg_agent_id: '830'
+    url: http://www.gutenberg.org/2009/agents/830
+    wikipedia: http://de.wikipedia.org/wiki/Luise_M%C3%BChlbach
+description: Henry VIII was the infamous English king who abolished ties with the
+  Catholic church and turned Britain into a protestant nation, positioning himself
+  at the head of the new church. He is also famous for his many wives. In 1864 Louise
+  Muhlbach, a German historical novelist, wrote a novel about Henry and his court,
+  exploring his reign as she imagined it.
+gutenberg_bookshelf: United Kingdom
+gutenberg_issued: '2002-10-01'
+gutenberg_type: Text
+identifiers:
+  gutenberg: '3476'
+language: en
+publisher: Project Gutenberg
+rights: Public domain in the USA.
+rights_url: http://creativecommons.org/about/pdm
+subjects:
+- !lcsh 'Catharine Parr, Queen, consort of Henry VIII, King of England, 1512-1548
+  -- Fiction'
+- !lcsh 'Courts and courtiers -- Fiction'
+- !lcc 'PT'
+- !lcsh 'Henry VIII, King of England, 1491-1547 -- Fiction'
+- GITenberg
+title: 'Henry VIII and His Court: A Historical Novel'
+url: http://www.gutenberg.org/ebooks/3476

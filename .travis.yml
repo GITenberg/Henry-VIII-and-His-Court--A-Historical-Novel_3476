@@ -1,0 +1,61 @@
+sudo: required
+dist: trusty
+language: ruby
+
+before_install:
+before_install:
+- gem install asciidoctor -v 1.5.2
+- gem install tilt
+- sudo pip install git+https://github.com/gitenberg-dev/gitberg
+- sudo pip install pillow
+- sudo pip install cssutils
+- sudo pip install docutils
+- sudo pip install roman
+- sudo pip install git+https://github.com/gitenberg-dev/pg-epubmaker
+script:
+- VERSION=`ruby -e "require 'yaml'; meta = YAML.load_file('metadata.yaml'); puts meta['_version'];"`
+- git clone https://github.com/gitenberg-dev/asciidoctor-htmlbook.git
+- sudo pip install -r asciidoctor-htmlbook/gitberg-machine/requirements.txt
+
+- /usr/bin/python -c "from gitenberg import travis; travis.build_epub()"
+- ebook-convert book.epub book.mobi
+- xvfb-run ebook-convert book.epub book.pdf
+branches:
+  only:
+  - master
+notifications:
+  webhooks:
+    urls:
+      - https://unglue.it/api/travisci/webhook
+    on_success: always
+    on_failure: never
+    on_start: never
+deploy:
+  skip_cleanup: true
+  provider: releases
+  api_key:
+    secure: UH0BGDy/jNMrmV2LtlsWk+xmSF6mo/BgK6Pi8TliX82to92VBYd1u5wEcUfypr9v+5kk451QW5sY9XhqlbiuZFDPckubJLBrCSJ97RRew7I4jm2Dw9IqKM40b1kvBia5Hb8wH+BuJCubFLsMalxUgNrrv+pM//VgtbqSPU+nE0VNafH4SHhL51GOWcjtlPWf9pArPnHzeVOQb4mI249irZBHiNTFbhXIUw5CUAmP35MD7flHz9ItE6bjvDuWYoFctFlSUbvjmeHI7P9g3q1yNRFXxGMKHAnaPiXjDXNBD/ofuFLmO9REfHyhT9H+k173uzcQIj59yxA/kFdeFbBjhDXy8I0s7mc6XRJr8/oKXsVmrmaqA2Kww99vWM3elbB4v4FWcuaXhC0oRN/spVxKxMsxjPY7KWnunca53LqxyXx4tJiWEi86iRl791Fp4NNN3NKcWEMfpU5KgL9Ct3gJXJWv3/ij574RWZ7HfkWnEFwBX7YhnnkOnPn++8ulqO1RWxsuu0p8M52ZKc049Q3CPtFgvPt/D9wpgYQsqzhWppRp/qmfJBf4UF6RR3NoxgmsHi86c/+dSrMogCGAI2HQXywcxUtcB9ttdJp3Llx7YXNd1Em0KiC2TGWW2cHg3UhCT2UZ9LjNpSYX0QzO/oPwmolWVEahGbcT+VPNnfrJTSs=
+  file:
+    - book.epub
+    - book.mobi
+    - book.pdf
+  "on":
+    repo: GITenberg/Henry-VIII-and-His-Court--A-Historical-Novel_3476
+addons:
+  apt:
+    packages:
+    - xsltproc
+    - xvfb
+    - calibre
+    - python-pip
+    - git
+    - python-dev
+    - libjpeg-dev
+    - libpng-dev
+    - libfreetype6
+    - libfreetype6-dev
+    - zlib1g-dev
+    - python-lxml
+    - libxml2-dev
+    - libxslt1-dev
+    - tidy
